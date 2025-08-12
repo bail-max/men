@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Imagen en esquina superior derecha</title>
+    <style>
+        .imagen-derecha {
+            position: absolute;
+            top: 100px; /* Bajamos más la imagen */
+            right: 20px;
+            width: 300px;
+            height: auto;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://geducar.com/sites/default/files/2021-09/Liceo%20Valle%20del%20Sol.jpg" alt="Imagen" class="imagen-derecha">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachillerato en Computación - Orientación Científica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .nav-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-btn.active {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 100px;
+            min-height: 100vh;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="m 60,0 L 0,0 0,60" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)" /></svg>');
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, -20px) rotate(180deg); }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+        
+        .card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Author Cards */
+        .author-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(78, 205, 196, 0.5);
+        }
+        
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .author-card:hover .author-avatar {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.4);
+        }
+        
+        .author-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .author-role {
+            color: #4ecdc4;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .author-bio {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .author-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-tag {
+            background: rgba(78, 205, 196, 0.2);
+            border: 1px solid rgba(78, 205, 196, 0.4);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            color: #4ecdc4;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(78, 205, 196, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .author-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Subject Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+        
+        .subject-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .subject-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+        
+        .subject-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #4ecdc4, #ff6b6b);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            width: 45%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4ecdc4;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-1 {
+            top: 20%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-2 {
+            top: 60%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, rgba(69, 183, 209, 0.1), rgba(150, 206, 180, 0.1));
+            border-radius: 30%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        .floating-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, rgba(118, 75, 162, 0.1), rgba(102, 126, 234, 0.1));
+            border-radius: 40%;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .nav-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                justify-content: flex-start !important;
+                padding-left: 60px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-element floating-1"></div>
+    <div class="floating-element floating-2"></div>
+    <div class="floating-element floating-3"></div>
+
+    <header>
+        <nav>
+            <div class="logo">💻 Futuro VDS 2025 Expo </div>
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showPage('inicio')">Inicio</button>
+                <button class="nav-btn" onclick="showPage('carrera')">La Carrera</button>
+                <button class="nav-btn" onclick="showPage('materias')">Materias</button>
+                <button class="nav-btn" onclick="showPage('oportunidades')">Oportunidades</button>
+                <button class="nav-btn" onclick="showPage('autores')">Autores</button>
+                <button class="nav-btn" onclick="showPage('contacto')">Contacto</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Página de Inicio -->
+        <div id="inicio" class="page active">
+            <div class="hero">
+                <h1>Bachillerato en Computación Con Orientación Científica </h1>
+                <p> Tu futuro digital comienza aquí</p>
+                <button class="cta-button" onclick="showPage('carrera')">Descubre Más</button>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🚀 Innovación Tecnológica</h3>
+                    <p>Desarrolla soluciones innovadoras usando las últimas tecnologías y metodologías científicas para resolver problemas complejos del mundo real.</p>
+                </div>
+                <div class="card">
+                    <h3>🧬 Enfoque Científico</h3>
+                    <p>Combina la programación con el método científico, estadística y análisis de datos para crear aplicaciones con base científica sólida.</p>
+                </div>
+                <div class="card">
+                    <h3>🌟 Futuro Prometedor</h3>
+                    <p>Prepárate para carreras en inteligencia artificial, ciencia de datos, biotecnología computacional y desarrollo de software científico.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de La Carrera -->
+        <div id="carrera" class="page">
+            <div class="hero">
+                <h1>Sobre la Carrera</h1>
+                <p>Una formación integral que combina computación y ciencias</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>📚 Formación Integral</h3>
+                    <p>El Bachillerato en Computación con Orientación Científica es un programa educativo de nivel medio superior que integra conocimientos de informática, programación, matemáticas y ciencias naturales. Está diseñado para formar estudiantes con una base sólida en tecnología y método científico.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Objetivos</h3>
+                    <p>• Desarrollar competencias en programación y desarrollo de software<br>
+                    • Aplicar el método científico en proyectos tecnológicos<br>
+                    • Fomentar el pensamiento lógico y analítico<br>
+                    • Preparar para estudios superiores en carreras STEM</p>
+                </div>
+                <div class="card">
+                    <h3>💼 Perfil del Egresado</h3>
+                    <p>Al graduarte, serás capaz de diseñar y desarrollar software, analizar datos científicos, resolver problemas mediante algoritmos, trabajar en proyectos multidisciplinarios y continuar estudios superiores en ingeniería, ciencias computacionales o áreas afines.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Materias -->
+        <div id="materias" class="page">
+            <div class="hero">
+                <h1>Plan de Estudios</h1>
+                <p>Materias diseñadas para una formación completa</p>
+            </div>
+            
+            <h2 style="text-align: center; margin: 2rem 0; color: #4ecdc4;">Materias Principales</h2>
+            <div class="subjects-grid">
+                <div class="subject-item">
+                    <span class="subject-emoji">💻</span>
+                    <h3>Programación</h3>
+                    <p>Python, Java, C++, desarrollo web</p>
+                </div>
+                <div class="subject-item">
+                    <span class="subject-emoji">🔢</span>
+                    <h3>Matemáticas</h3>
+                    <p>Álgebra, Cálculo, Estadística</p>
+                </div>
+                <div class="subject-item">
+                    <span class="subject-emoji">🧪</span>
+                    <h3>Ciencias</h3>
+                    <p>Física, Química, Biología</p>
+                </div>
+                <div class="subject-item">
+                    <span class="subject-emoji">📊</span>
+                    <h3>Análisis de Datos</h3>
+                    <p>Estadística aplicada, Big Data</p>
+                </div>
+                <div class="subject-item">
+                    <span class="subject-emoji">📱</span>
+                    <h3>Desarrollo Móvil</h3>
+                    <p>Apps Android/iOS, Interfaces</p>
+                </div>
+                <div class="subject-item">
+                    <span class="subject-emoji">🔬</span>
+                    <h3>Metodología Científica</h3>
+                    <p>Investigación, Experimentación</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Oportunidades -->
+        <div id="oportunidades" class="page">
+            <div class="hero">
+                <h1>Oportunidades Futuras</h1>
+                <p>Descubre las múltiples opciones profesionales y académicas</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🎓 Estudios Superiores</h3>
+                    <p><strong>Carreras Universitarias:</strong><br>
+                    • Ingeniería en Sistemas Computacionales<br>
+                    • Ciencias de la Computación<br>
+                    • Ingeniería en Software<br>
+                    • Ciencia de Datos<br>
+                    • Inteligencia Artificial<br>
+                    • Biotecnología Computacional</p>
+                </div>
+                <div class="card">
+                    <h3>💼 Campo Laboral</h3>
+                    <p><strong>Oportunidades de Trabajo:</strong><br>
+                    • Desarrollador de Software<br>
+                    • Analista de Datos<br>
+                    • Técnico en Soporte TI<br>
+                    • Asistente de Investigación<br>
+                    • Desarrollador Web<br>
+                    • Especialista en Bases de Datos</p>
+                </div>
+                <div class="card">
+                    <h3>🚀 Emprendimiento</h3>
+                    <p><strong>Crear tu Propia Empresa:</strong><br>
+                    • Startup de Tecnología<br>
+                    • Consultoría en TI<br>
+                    • Desarrollo de Apps<br>
+                    • Servicios de Análisis de Datos<br>
+                    • Plataformas Educativas<br>
+                    • Soluciones IoT</p>
+                </div>
+                <div class="card">
+                    <h3>🔬 Investigación</h3>
+                    <p><strong>Áreas de Investigación:</strong><br>
+                    • Inteligencia Artificial<br>
+                    • Computación Cuántica<br>
+                    • Bioinformática<br>
+                    • Realidad Virtual/Aumentada<br>
+                    • Ciberseguridad<br>
+                    • Computación Científica</p>
+                </div>
+                <div class="card">
+                    <h3>🌍 Impacto Global</h3>
+                    <p><strong>Contribuye al Mundo:</strong><br>
+                    • Desarrollo Sostenible<br>
+                    • Salud Digital<br>
+                    • Educación Tecnológica<br>
+                    • Smart Cities<br>
+                    • Agricultura de Precisión<br>
+                    • Energías Renovables</p>
+                </div>
+                <div class="card">
+                    <h3>💰 Perspectivas Salariales</h3>
+                    <p><strong>Rangos Salariales (Guatemala):</strong><br>
+                    • Técnico Junior: Q8,000-12,000<br>
+                    • Desarrollador: Q12,000-25,000<br>
+                    • Analista Senior: Q20,000-35,000<br>
+                    • Especialista: Q30,000-50,000+<br>
+                    <em>*Salarios pueden variar según experiencia y empresa</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Autores -->
+        <div id="autores" class="page">
+            <div class="hero">
+                <h1>Conoce a Nuestro Equipo</h1>
+                <p>Los creadores detrás de este proyecto educativo</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="author-card">
+                    <div class="author-avatar">🎓</div>
+                    <div class="author-name">Alejandro Bail</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante apasionado por la programación y el desarrollo de software. Especializado en desarrollo web y aplicaciones móviles, siempre buscando nuevos desafíos tecnológicos.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">💻</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">👩‍💻</div>
+                    <div class="author-name">Nataly Valdez</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante enfocada en ciencia de datos y análisis estadístico. Le encanta descubrir patrones en los datos y crear visualizaciones que cuenten historias significativas.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Estadística</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📊</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">🚀</div>
+                    <div class="author-name">Marlon Ordoñez</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante con gran interés en inteligencia artificial y machine learning. Siempre experimentando con nuevos algoritmos y tecnologías emergentes.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">AI/ML</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Algoritmos</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">🤖</a>
+                        <a href="#" class="social-link">🔬</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">🎮</div>
+                    <div class="author-name">Jeremy Santos</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante apasionado por el desarrollo de videojuegos y la programación orientada a objetos. Combina creatividad y lógica para crear experiencias interactivas.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Game Dev</span>
+                        <span class="skill-tag">3D Design</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">🎮</a>
+                        <a href="#" class="social-link">💻</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">🔧</div>
+                    <div class="author-name">Kenny Lopez</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante fascinado por la robótica y los sistemas embebidos. Le gusta trabajar con hardware y crear proyectos que conecten el mundo físico con el digital.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">IoT</span>
+                        <span class="skill-tag">Robótica</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">🤖</a>
+                        <a href="#" class="social-link">🔧</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">📱</div>
+                    <div class="author-name">Pablo Mendez</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante especializado en desarrollo móvil y experiencia de usuario. Le encanta crear aplicaciones intuitivas que resuelvan problemas cotidianos.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Dart</span>
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">Firebase</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">🎨</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">🌐</div>
+                    <div class="author-name">Joselin Carranza</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante enfocada en ciberseguridad y redes. Interesada en proteger sistemas y datos, siempre aprendiendo sobre las últimas amenazas y defensas digitales.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Cybersecurity</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Redes</span>
+                        <span class="skill-tag">Ethical Hacking</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">🔒</a>
+                        <a href="#" class="social-link">🌐</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">💡</div>
+                    <div class="author-name">Genesis Chocojay</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante creativa con pasión por el diseño digital y la programación front-end. Combina arte y tecnología para crear interfaces visuales atractivas.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Design</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Front-end</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">🎨</a>
+                        <a href="#" class="social-link">💡</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">📊</div>
+                    <div class="author-name">Darly Carrillo</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante interesada en matemáticas aplicadas y modelado computacional. Le fascina usar algoritmos para resolver problemas complejos del mundo real.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Matemáticas</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Modelado</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📊</a>
+                        <a href="#" class="social-link">🧮</a>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">🌟</div>
+                    <div class="author-name">Fiorella Canel</div>
+                    <div class="author-role">Estudiante de Bachillerato</div>
+                    <div class="author-bio">
+                        Estudiante con gran interés en biotecnología computacional y bioinformática. Apasionada por aplicar la computación para resolver desafíos en ciencias de la vida.
+                    </div>
+                    <div class="author-skills">
+                        <span class="skill-tag">Bioinformática</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Biología</span>
+                        <span class="skill-tag">Data Mining</span>
+                    </div>
+                    <div class="author-social">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">🧬</a>
+                        <a href="#" class="social-link">🔬</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 4rem;">
+                <h2 style="text-align: center; margin: 2rem 0; color: #4ecdc4;">Nuestro Equipo Estudiantil</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>🎓 Somos Estudiantes</h3>
+                        <p>Este proyecto ha sido creado completamente por estudiantes del Bachillerato en Computación con Orientación Científica. Cada uno de nosotros aporta sus habilidades únicas y pasión por la tecnología.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🤝 Trabajo Colaborativo</h3>
+                        <p>Trabajamos como un equipo multidisciplinario, combinando nuestras diferentes especialidades y intereses para crear este sitio web informativo sobre nuestro programa de estudios.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🚀 Futuro Tecnológico</h3>
+                        <p>Representamos la nueva generación de profesionales en tecnología de Guatemala, preparados para enfrentar los desafíos del siglo XXI con conocimientos sólidos en computación y ciencias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Contacto -->
+        <div id="contacto" class="page">
+            <div class="hero">
+                <h1>¿Interesado?</h1>
+                <p>Contáctanos para más información sobre el programa</p>
+            </div>
+            
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿Qué te gustaría saber sobre la carrera?" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Enviar Consulta</button>
+                </form>
+            </div>
+            
+            <div class="cards-grid" style="margin-top: 3rem;">
+                <div class="card">
+                    <h3>📧 Email</h3>
+                    <p>informes@compuciencia.edu.gt<br>admisiones@compuciencia.edu.gt</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Teléfono</h3>
+                    <p>+502 2334-5678<br>+502 5555-1234</p>
+                </div>
+                <div class="card">
+                    <h3>📍 Dirección</h3>
+                    <p>Zona 10, Ciudad de Guatemala<br>Campus Tecnológico Central</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            // Ocultar todas las páginas
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Mostrar la página seleccionada
+            document.getElementById(pageId).classList.add('active');
+            
+            // Actualizar botones de navegación
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            alert(`¡Gracias ${data.nombre}! Tu consulta ha sido enviada. Te contactaremos pronto al correo ${data.email}.`);
+            
+            // Reset form
+            event.target.reset();
+        }
+        
+        // Efecto de paralaje suave
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            document.querySelector('.floating-1').style.transform = `translateY(${rate}px)`;
+            document.querySelector('.floating-2').style.transform = `translateY(${rate * 0.8}px)`;
+            document.querySelector('.floating-3').style.transform = `translateY(${rate * 1.2}px)`;
+        });
+        
+        // Animación de entrada para las tarjetas
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar animación a las tarjetas
+        document.querySelectorAll('.card, .author-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // Efecto de escritura en el título principal
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+        
+        // Aplicar efecto de escritura cuando se carga la página
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            typeWriter(heroTitle, originalText, 150);
+        });
+        
+        // Efecto de partículas flotantes adicionales
+        function createFloatingParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.style.position = 'fixed';
+            particle.style.width = Math.random() * 10 + 5 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = `linear-gradient(45deg, rgba(255, 107, 107, ${Math.random() * 0.3}), rgba(78, 205, 196, ${Math.random() * 0.3}))`;
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '-1';
+            
+            document.body.appendChild(particle);
+            
+            const duration = Math.random() * 3000 + 2000;
+            const drift = (Math.random() - 0.5) * 200;
+            
+            particle.animate([
+                { transform: 'translateY(0px) translateX(0px)', opacity: 0 },
+                { transform: `translateY(-${window.innerHeight + 100}px) translateX(${drift}px)`, opacity: 0.6 },
+                { transform: `translateY(-${window.innerHeight + 200}px) translateX(${drift * 2}px)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'ease-out'
+            }).addEventListener('finish', () => {
+                particle.remove();
+            });
+        }
+        
+        // Crear partículas cada cierto tiempo
+        setInterval(createFloatingParticle, 800);
+        
+        // Efecto de ondas en los botones
+        document.querySelectorAll('.nav-btn, .cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // CSS para el efecto de ondas
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+        
+        // Contador animado para estadísticas (si queremos agregar)
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                element.textContent = Math.floor(start);
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+        
+        // Efecto de cambio de color dinámico en el header
+        let hue = 0;
+        setInterval(() => {
+            hue = (hue + 1) % 360;
+            document.documentElement.style.setProperty('--dynamic-hue', hue);
+        }, 100);
+    </script>
+    
+    <style>
+        /* Estilos adicionales para los efectos */
+        :root {
+            --dynamic-hue: 0;
+        }
+        
+        /* Efecto de glassmorphism mejorado */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                rgba(255, 255, 255, 0.1), 
+                rgba(255, 255, 255, 0.05), 
+                rgba(255, 255, 255, 0.1));
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card:hover::after {
+            opacity: 1;
+        }
+        
+        /* Mejoras visuales adicionales */
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -15px;
+            border-left: 15px solid rgba(255, 255, 255, 0.1);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -15px;
+            border-right: 15px solid rgba(255, 255, 255, 0.1);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+        
+        /* Animación de gradiente en el fondo */
+        body {
+            animation: gradientShift 15s ease infinite;
+            background-size: 400% 400%;
+        }
+        
+        /* Efecto de hover en los elementos de materias */
+        .subject-item:hover .subject-emoji {
+            animation: bounce 0.6s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            80% { transform: translateY(-10px); }
+        }
+        
+        /* Texto con efecto de neón sutil */
+        .hero h1 {
+            text-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+        
+        /* Scroll suave personalizado */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Efectos adicionales para móviles */
+        @media (max-width: 768px) {
+            .floating-element {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+            
+            .author-skills {
+                gap: 0.3rem;
+            }
+            
+            .skill-tag {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+        }
+    </style>
+</body>
+</html>
